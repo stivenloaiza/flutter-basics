@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/views/detailCard.dart';
+import 'package:untitled/views/detail_card.view.dart';
 import 'package:untitled/widgets/CustomAppbar.dart';
 import 'package:untitled/widgets/CustomButtomNav.dart';
 import 'package:untitled/widgets/CustomCategory.dart';
