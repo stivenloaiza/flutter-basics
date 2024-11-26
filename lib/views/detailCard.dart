@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/configs.dart' as cf;
 
 class DetailCard extends StatefulWidget {
   const DetailCard({super.key});
@@ -8,10 +9,35 @@ class DetailCard extends StatefulWidget {
 }
 
 class _DetailCardState extends State<DetailCard> {
+
+  changeTitle(){
+    cf.actuallyName = '${cf.actuallyName} x';
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(color: Colors.blue,),
+      body: Column(
+        children: [
+          Container(
+            color: Colors.blue,
+            child: Text(cf.actuallyName, style: cf.titlesTexts,),
+          ),
+          ElevatedButton(
+            style: cf.styleButton,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Return'),
+          ),
+          ElevatedButton(
+            style: cf.styleButton,
+            onPressed: changeTitle,
+            child: const Text('Change Text'),
+          ),
+        ],
+      ),
     );
   }
 }

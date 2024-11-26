@@ -4,6 +4,7 @@ import 'package:untitled/widgets/CustomAppbar.dart';
 import 'package:untitled/widgets/CustomButtomNav.dart';
 import 'package:untitled/widgets/CustomCategory.dart';
 import 'package:untitled/widgets/CustomImageCard.dart';
+import 'package:untitled/configs.dart' as cf;
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -14,8 +15,14 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
 
-  goToOtherView(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailCard()));
+  goToOtherView() async {
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailCard()));
+    setState(() {});
+  }
+
+  changeTitle(){
+    cf.actuallyName = '${cf.actuallyName} s';
+    setState(() {});
   }
 
   @override
@@ -25,6 +32,12 @@ class _DashboardState extends State<Dashboard> {
         children: [
           CustomAppbar(),
           CustomCategory(),
+          Text(cf.actuallyName, style: cf.titlesTexts),
+          ElevatedButton(
+            style: cf.styleButton,
+            onPressed: changeTitle,
+            child: const Text('Change Text'),
+          ),
           Expanded(
             child: ListView(
               children: [
