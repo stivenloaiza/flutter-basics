@@ -16,7 +16,9 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
 
   goToOtherView() async {
-    await Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailCard()));
+    //await Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailCard()));
+    bool bought = await Navigator.pushNamed(context, '/detail') as bool;
+    print('EL usuario compro? ${bought?"si":"no"}');
     setState(() {});
   }
 

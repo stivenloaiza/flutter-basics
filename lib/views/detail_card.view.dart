@@ -35,7 +35,7 @@ class _DetailCardState extends State<DetailCard> {
           ElevatedButton(
             style: cf.styleButton,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pop(context, false);
             },
             child: const Text('Return'),
           ),
